@@ -2,8 +2,33 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  min-width: 320px;
 }
 
+input, textarea {
+  outline: none;
+  border: 1px solid #e6e6e6;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+textarea {
+  resize: none;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  background: #00a3cf;
+  color: #FFF;
+  border-radius: 3px;
+}
+
+p {
+  margin: 0;
+}
 
 .wrapper {
   max-width: 500px;
@@ -13,3 +38,65 @@ body {
   border: 1px solid #f1f1f1;
   padding: 1em;
 }
+
+.comment-input {
+  margin-bottom: 1em;
+  padding: 1em;
+  border: 1px solid #f1f1f1;
+}
+
+.comment-field {
+  display: flex;
+  margin-bottom: 1em; 
+}
+
+.comment-field-name {
+    flex-basis: 21%;
+}
+
+@media screen and (max-width: 400px) {
+      .comment-field {
+          flex-direction: column;
+      }
+      .comment-field-name {
+         margin-bottom: 1em;
+      }
+}
+
+.comment-field-input {
+    flex: 1;
+    display: flex;
+}
+
+.comment-field-input  input, .comment-field-input  textarea {
+    flex: 1;
+}
+
+.comment-field-input  textarea {
+    height: 100px;
+}
+
+.comment-field-button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.comment-field-button button {
+    min-width: 16%;
+}
+
+.comment {
+  display: flex;
+  border-bottom: 1px solid #CCC;
+  margin-bottom: 1em;
+  padding: 1em;
+}
+
+.comment span {
+  color: #00a3cf;
+  font-weight: bold;
+}
+
+/*.comment-user {
+  flex-shrink: 0
+}*/

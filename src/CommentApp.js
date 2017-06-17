@@ -3,10 +3,14 @@ import CommentInput from './CommentInput.js'
 import CommentList from './CommentList.js'
 
 class CommentApp extends Component {
+    handleSubmitComment (comment) {
+        console.log(comment);
+    }
+
     render() {
         return (
             <div className = "wrapper">
-                <CommentInput />
+                <CommentInput onSubmit={this.handleSubmitComment.bind(this)}/>
                 <CommentList />
             </div>
         )
