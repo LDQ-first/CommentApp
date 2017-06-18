@@ -90,9 +90,10 @@ p {
   border-bottom: 1px solid #CCC;
   margin-bottom: 1em;
   padding: 1em;
+  position: relative;
 }
 
-.comment span {
+.comment .comment-user {
   color: #00a3cf;
   font-weight: bold;
 }
@@ -100,3 +101,35 @@ p {
 /*.comment-user {
   flex-shrink: 0
 }*/
+
+.comment-createdtime {
+  padding-right: 5px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.comment:hover .comment-delete {
+  color: #00a3cf;
+}
+
+.comment-delete {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: transparent;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.comment p {
+  margin: 0;
+}
+
+code {
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  padding: 0px 2px;
+}
