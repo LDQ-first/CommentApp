@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import PropsTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 class Comment extends Component {
-    static propsTypes = {
-        comment: PropsTypes.object
+    static propTypes = {
+        comment: PropTypes.object
     }
 
     constructor () {

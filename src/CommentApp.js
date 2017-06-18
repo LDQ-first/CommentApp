@@ -1,22 +1,31 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import CommentInput from './CommentInput.js'
 import CommentList from './CommentList.js'
+import wrapWithLoadData from './wrapWithLoadData.js'
 
 class CommentApp extends Component {
-    constructor () {
-        super()
+    static propTypes = {
+        data: PropTypes.any,
+        saveData: PropTypes.func.isRequired
+    }
+
+    constructor (props) {
+        super(props)
         this.state = {
-            comments: []
+            comments: props.data
         }
     }
 
-    componentWillMount () {
+    
+
+   /* componentWillMount () {
         this._loadComments()
-    }
+    }*/
 
    
 
-    _loadComments () {
+   /* _loadComments () {
         if(localStorage.comments) {
             this.setState({
                 comments: JSON.parse(localStorage.comments)
@@ -26,7 +35,7 @@ class CommentApp extends Component {
 
     _saveComments (comments) {
         localStorage.comments = JSON.stringify(comments)
-    }
+    }*/
 
 
     handleSubmitComment (comment) {
@@ -42,14 +51,16 @@ class CommentApp extends Component {
         const comments = this.state.comments
         comments.push(comment)
         this.setState({ comments })
-        this._saveComments(comments)
+        /*this._saveComments(comments)*/
+        this.props.saveData(comments)
     }
 
     handleDeleteComment (index) {
         const comments = this.state.comments
         comments.splice(index, 1)
         this.setState({comments})
-        this._saveComments(comments)
+        /*this._saveComments(comments)*/
+        this.props.saveData(comments)
     }
 
 
@@ -65,4 +76,5 @@ class CommentApp extends Component {
     }
 }
 
+CommentApp = wrapWithLoadData(CommentApp, 'comments')
 export default CommentApp
