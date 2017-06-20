@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Comment from './Comment'
 
-class CommentList extends Component {
+export default class CommentList extends Component {
+    static propsTypes = {
+        comments: PropTypes.array,
+        onDeleteComment: PropTypes.func
+    }
+
      static defaultProps = {
          comments: []   
     }
@@ -23,5 +29,3 @@ class CommentList extends Component {
         ) 
     }
 }
-
-export default CommentList

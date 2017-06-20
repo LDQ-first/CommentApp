@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-class Comment extends Component {
+export default class Comment extends Component {
     static propTypes = {
-        comment: PropTypes.object
+        comment: PropTypes.object,
+        onDeleteComment: PropTypes.func,
+        index: PropTypes.number
     }
 
     constructor () {
@@ -17,7 +19,7 @@ class Comment extends Component {
         this._updateTimeString()
         this._timer = setInterval(
             this._updateTimeString.bind(this),
-            5000
+            30000
         )
     }
 
@@ -29,9 +31,13 @@ class Comment extends Component {
         const comment = this.props.comment
         const duration = (+Date.now() - comment.createdTime) /1000
         this.setState({
-            timeString: duration > 60 
-                ? `${Math.round(duration / 60)} 分钟前`
-                : `${Math.round(Math.max(duration, 1))} 秒前`
+            timeString:  duration > 60 
+                ? Math.round(duration / 60) > 60 
+                ? Math.round(duration / 3600) > 24 
+                ? `${Math.round(duration / 86400)} 天前`
+                : `${Math.round(duration / 3600)} 小时前`
+                : `${Math.round(duration / 60)} 分钟前`
+                : `${Math.round(Math.max(duration, 1))} 秒前` 
         })
       }
 
@@ -72,5 +78,3 @@ class Comment extends Component {
             )
         }
 }
-
-export default Comment
