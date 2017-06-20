@@ -28,7 +28,7 @@ export default class CommentInput extends Component {
     
     handleUsernameBlur (e) {
         if(this.props.onUserNameInputBlur) {
-            this.props.onUserNameInputBlur(e.target.valure)
+            this.props.onUserNameInputBlur(e.target.value)
         }
     }
 
