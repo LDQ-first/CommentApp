@@ -18,5 +18,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://ldq-first.github.io/react-comment-app-1/build/"
+  "homepage": "https://ldq-first.github.io/react-comment-app/build/"
 }
