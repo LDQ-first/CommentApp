@@ -7,7 +7,10 @@ import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 import commentsReducer from './reducers/comments.js'
 
-const store = createStore(commentsReducer)
+const store = createStore(
+    commentsReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
 
 ReactDOM.render(
     <Provider store={store}>

@@ -1,13 +1,14 @@
 
-
+//reducer const
 const INIT_COMMENTS = 'INIT_COMMENTS'
 const ADD_COMMENT = 'ADD_COMMENT'
 const DELETE_COMMENT = 'DELETE_COMMENT'
 
-export default (state, action) => {
-    if(!state) {
+//reducer
+export default (state  = {comments: []}, action) => {
+    /*if(!state) {
         state = {comments: []}
-    }
+    }*/
     switch (action.type) {
         case INIT_COMMENTS:
             return { comments: action.comments}
@@ -27,6 +28,7 @@ export default (state, action) => {
     }
 }
 
+//action creator
 export const initComments = (comments) => {
     return {type: INIT_COMMENTS, comments}
 }
